@@ -1,4 +1,4 @@
-import { House, LogOut, Settings, X } from "lucide-react";
+import { House, Settings, LogOut, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
@@ -130,7 +130,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
                   navigate("/");
                   onClose();
                 }}
-                className="flex w-full items-center gap-4 rounded-2xl px-4 py-1 text-left transition-all hover:bg-orange-600"
+                className="flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition-all hover:bg-orange-600"
               >
                 <House size={22} />
                 <span className="font-medium">Dashboard</span>
@@ -138,7 +138,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
               <button
                 onClick={handleConfig}
-                className="flex w-full items-center gap-4 rounded-2xl px-4 py-1 text-left transition-all hover:bg-orange-600"
+                className="flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition-all hover:bg-orange-600"
               >
                 <Settings size={22} />
                 <span className="font-medium">Configurações</span>
@@ -158,10 +158,6 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
           <div className="px-1 pb-6">
             <div className="rounded-3xl bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 p-5 text-center shadow-xl">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-2xl font-bold text-orange-500 shadow-lg">
-                🚀
-              </div>
-
               <h3 className="mt-4 text-lg font-semibold text-white">
                 Continue assim!
               </h3>
