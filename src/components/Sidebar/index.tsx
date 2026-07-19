@@ -100,29 +100,6 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
           <hr className="mx-6 border-orange-400/40" />
 
-          {/* Menu */}
-
-          {/* <nav className="flex-1 space-y-3">
-            <button
-              onClick={() => {
-                navigate("/");
-                onClose();
-              }}
-              className="flex w-full cursor-pointer items-center gap-4 rounded-2xl px-5 py-4 text-left transition hover:bg-white/10"
-            >
-              <House size={22} />
-              Dashboard
-            </button>
-
-            <button
-              onClick={handleConfig}
-              className="flex w-full cursor-pointer items-center gap-4 rounded-2xl px-5 py-4 text-left transition hover:bg-white/10"
-            >
-              <Settings size={22} />
-              Configurações
-            </button>
-          </nav> */}
-
           <nav className="flex-1 px-5 py-6">
             <div className="space-y-2">
               <button
@@ -130,15 +107,15 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
                   navigate("/");
                   onClose();
                 }}
-                className="flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition-all hover:bg-orange-600"
+                className="flex w-full items-center gap-4 rounded-2xl px-4 py-4 text-left transition-all hover:bg-orange-600"
               >
                 <House size={22} />
-                <span className="font-medium">Dashboard</span>
+                <span className="font-medium">Painel</span>
               </button>
 
               <button
                 onClick={handleConfig}
-                className="flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition-all hover:bg-orange-600"
+                className="flex w-full items-center gap-4 rounded-2xl px-4 py-4 text-left transition-all hover:bg-orange-600"
               >
                 <Settings size={22} />
                 <span className="font-medium">Configurações</span>
@@ -146,7 +123,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
               <button
                 onClick={handleLogout}
-                className="flex w-full items-center gap-4 rounded-2xl px-4 py-1 text-left transition-all hover:bg-red-500"
+                className="flex w-full items-center gap-4 rounded-2xl px-4 py-6 text-left transition-all hover:bg-red-500"
               >
                 <LogOut size={22} />
                 <span className="font-medium">Sair</span>

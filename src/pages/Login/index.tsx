@@ -13,8 +13,8 @@ export default function Login() {
 
   const { isAuthenticated, saveSession } = useAuth();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@teste.com");
+  const [password, setPassword] = useState("admin123");
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -79,7 +79,7 @@ export default function Login() {
             <img src={logo} alt="Reserve Já" className="mx-auto mb-8 w-35" />
 
             <h2 className="text-center text-4xl font-bold text-orange-500">
-              Olá!
+              DiReserva
             </h2>
 
             <p className="mb-10 mt-2 text-center text-gray-500">
