@@ -56,6 +56,12 @@ export default function RegisterReservationModal({ open, onClose }: Props) {
       console.log("===== ENVIANDO RESERVA =====");
       console.table(payload);
 
+      console.log("===== FRONTEND =====");
+      console.log("Data:", date);
+      console.log("Hora início:", startHour);
+      console.log("Hora fim:", endHour);
+      console.log("Payload:", payload);
+
       await createReservation(payload);
 
       alert("Reserva cadastrada com sucesso!");
@@ -88,14 +94,17 @@ export default function RegisterReservationModal({ open, onClose }: Props) {
         onSubmit={handleSubmit}
         className="w-full max-w-xl rounded-3xl bg-white p-8 shadow-xl"
       >
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Registrar Reserva</h2>
+        <div className="flex w-full items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 font-semibold text-white hover:bg-orange-600">
+          <h2 className="text-center text-2xl font-bold">Registrar Reserva</h2>
 
-          <button type="button" onClick={onClose}>
-            <X />
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex w-full items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 font-semibold text-white hover:bg-orange-600"
+          >
+            <X size={22} />
           </button>
         </div>
-
         <div className="space-y-5">
           <div className="flex gap-4">
             <div className="flex-1">
@@ -169,11 +178,11 @@ export default function RegisterReservationModal({ open, onClose }: Props) {
           </div>
         </div>
 
-        <div className="mt-8 flex justify-end gap-3">
+        <div className="mt-8 flex gap-3">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl border px-6 py-3"
+            className="flex-1 rounded-xl border py-3 font-medium"
           >
             Cancelar
           </button>
@@ -181,7 +190,7 @@ export default function RegisterReservationModal({ open, onClose }: Props) {
           <button
             type="submit"
             disabled={loading}
-            className="rounded-xl bg-orange-500 px-6 py-3 text-white"
+            className="flex-1 rounded-xl bg-orange-500 py-3 font-medium text-white hover:bg-orange-600 disabled:opacity-60"
           >
             {loading ? "Salvando..." : "Salvar"}
           </button>
