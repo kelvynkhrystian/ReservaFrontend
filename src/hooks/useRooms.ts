@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { getRooms } from "../services/rooms";
 import { getReservations } from "../services/reservations";
@@ -11,8 +11,10 @@ export function useRooms() {
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
 
-  async function load() {
+  const load = useCallback(async () => {
     try {
+      setLoading(true);
+
       const [roomsData, reservationsData] = await Promise.all([
         getRooms(),
         getReservations(),
@@ -23,15 +25,16 @@ export function useRooms() {
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
 
   useEffect(() => {
     load();
-  }, []);
+  }, [load]);
 
   return {
     rooms,
     reservations,
     loading,
+    reloadRooms: load,
   };
 }
