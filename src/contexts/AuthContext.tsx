@@ -14,7 +14,7 @@ interface AuthContextData {
   token: string | null;
   isAuthenticated: boolean;
 
-  signIn: (token: string, user: User) => void;
+  saveSession: (token: string, user: User) => void;
   signOut: () => void;
 }
 
@@ -37,7 +37,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
-  function signIn(token: string, user: User) {
+  function saveSession(token: string, user: User) {
     localStorage.setItem("@reserva:token", token);
     localStorage.setItem("@reserva:user", JSON.stringify(user));
 
@@ -58,7 +58,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       user,
       token,
       isAuthenticated: !!token,
-      signIn,
+      saveSession,
       signOut,
     }),
     [user, token],
