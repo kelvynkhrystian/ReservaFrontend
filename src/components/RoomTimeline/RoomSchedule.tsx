@@ -44,14 +44,6 @@ export default function RoomSchedule({ roomId, reservations, view }: Props) {
 
       const start = new Date(r.startAt);
 
-      console.log({
-        room: roomId,
-        reservationRoom: r.roomId,
-        start: start.toString(),
-        hour: start.getHours(),
-        today: start.toDateString(),
-      });
-
       return (
         start.toDateString() === now.toDateString() && start.getHours() === h
       );

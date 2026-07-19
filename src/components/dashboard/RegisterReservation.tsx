@@ -10,7 +10,7 @@ export default function RegisterReservation() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 font-semibold text-white hover:bg-orange-600"
+        className="flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-white"
       >
         <CalendarPlus size={18} />
         Registrar Reserva
