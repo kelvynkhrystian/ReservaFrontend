@@ -1,61 +1,39 @@
 import { CalendarDays } from "lucide-react";
-import { useState } from "react";
 
-export default function ReservationFilters() {
-  const [view, setView] = useState<"today" | "week">("today");
+interface ReservationFiltersProps {
+  view: "today" | "week";
+  onChange: (view: "today" | "week") => void;
+}
 
+export default function ReservationFilters({
+  view,
+  onChange,
+}: ReservationFiltersProps) {
   return (
     <div className="flex w-full items-center gap-2 sm:w-auto">
       <button
-        onClick={() => setView("today")}
-        className={`flex-1
-          sm:flex-none
-
-          flex
-          items-center
-          justify-center
-          gap-2
-
-          rounded-xl
-
-          px-5
-          py-3
-
-          font-semibold
-
-          transition ${
-            view === "today"
-              ? "bg-orange-500 text-white"
-              : "bg-white shadow-sm hover:bg-slate-100"
-          }`}
+        type="button"
+        onClick={() => onChange("today")}
+        className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition sm:flex-none ${
+          view === "today"
+            ? "bg-orange-500 text-white"
+            : "bg-white text-slate-700 shadow-sm hover:bg-slate-100"
+        }`}
       >
         <CalendarDays size={18} />
         Hoje
       </button>
 
       <button
-        onClick={() => setView("week")}
-        className={`flex-1
-          sm:flex-none
-
-          flex
-          items-center
-          justify-center
-          gap-2
-
-          rounded-xl
-
-          px-5
-          py-3
-
-          font-semibold
-
-          transition ${
-            view === "week"
-              ? "bg-orange-500 text-white"
-              : "bg-white shadow-sm hover:bg-slate-100"
-          }`}
+        type="button"
+        onClick={() => onChange("week")}
+        className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition sm:flex-none ${
+          view === "week"
+            ? "bg-orange-500 text-white"
+            : "bg-white text-slate-700 shadow-sm hover:bg-slate-100"
+        }`}
       >
+        <CalendarDays size={18} />
         Semana
       </button>
     </div>

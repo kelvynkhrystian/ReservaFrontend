@@ -11,6 +11,9 @@ import ReservationLegend from "../../components/dashboard/ReservationLegend";
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // hoje | semana
+  const [view, setView] = useState<"today" | "week">("today");
+
   return (
     <>
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
@@ -19,17 +22,20 @@ export default function Dashboard() {
         <div className="space-y-6 p-5 lg:p-8">
           <Header onOpenMenu={() => setSidebarOpen(true)} />
 
-          {/* PRIMEIRA LINHA */}
+          {/* Barra de ações */}
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <RegisterReservation />
-            <ReservationFilters />
+
+            <ReservationFilters view={view} onChange={setView} />
           </div>
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+
+          {/* Legenda */}
+          <div className="flex justify-center lg:justify-start">
             <ReservationLegend />
           </div>
 
-          {/* SALAS */}
-          <RoomTimeline />
+          {/* Lista de salas */}
+          <RoomTimeline view={view} />
         </div>
       </main>
     </>

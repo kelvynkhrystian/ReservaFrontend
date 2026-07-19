@@ -1,34 +1,22 @@
 import { CalendarPlus } from "lucide-react";
+import { useState } from "react";
+
+import RegisterReservationModal from "../forms/RegisterReservationModal";
 
 export default function RegisterReservation() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <button
-      className="
-        w-full
-        sm:w-auto
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="flex items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 font-semibold text-white hover:bg-orange-600"
+      >
+        <CalendarPlus size={18} />
+        Registrar Reserva
+      </button>
 
-        flex
-        items-center
-        justify-center
-
-        gap-2
-
-        rounded-xl
-
-        bg-orange-500
-
-        px-5
-        py-3
-
-        font-semibold
-        text-white
-
-        transition
-        hover:bg-orange-600
-      "
-    >
-      <CalendarPlus size={18} />
-      Registrar Reserva
-    </button>
+      <RegisterReservationModal open={open} onClose={() => setOpen(false)} />
+    </>
   );
 }

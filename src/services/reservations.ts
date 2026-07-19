@@ -16,3 +16,16 @@ export async function getReservations() {
 
   return data;
 }
+
+export interface CreateReservationDTO {
+  roomId: string;
+  numberOfParticipants: number;
+  startAt: string;
+  endAt: string;
+}
+
+export async function createReservation(data: CreateReservationDTO) {
+  const response = await api.post("/reservations", data);
+
+  return response.data;
+}

@@ -1,8 +1,11 @@
 import { useRooms } from "../../hooks/useRooms";
-
 import RoomCard from "./RoomCard";
 
-export default function RoomTimeline() {
+interface RoomTimelineProps {
+  view: "today" | "week";
+}
+
+export default function RoomTimeline({ view }: RoomTimelineProps) {
   const { rooms, reservations, loading } = useRooms();
 
   if (loading) {
@@ -12,7 +15,12 @@ export default function RoomTimeline() {
   return (
     <div className="space-y-5">
       {rooms.map((room) => (
-        <RoomCard key={room.id} room={room} reservations={reservations} />
+        <RoomCard
+          key={room.id}
+          room={room}
+          reservations={reservations}
+          view={view}
+        />
       ))}
     </div>
   );
