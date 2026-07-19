@@ -4,6 +4,10 @@ import Header from "../../components/Header";
 import RoomTimeline from "../../components/RoomTimeline";
 import Sidebar from "../../components/Sidebar";
 
+import RegisterReservation from "../../components/dashboard/RegisterReservation";
+import ReservationFilters from "../../components/dashboard/ReservationFilters";
+import ReservationLegend from "../../components/dashboard/ReservationLegend";
+
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -15,8 +19,16 @@ export default function Dashboard() {
         <div className="space-y-6 p-5 lg:p-8">
           <Header onOpenMenu={() => setSidebarOpen(true)} />
 
-          {/* Filtros virão aqui */}
+          {/* PRIMEIRA LINHA */}
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <RegisterReservation />
+            <ReservationFilters />
+          </div>
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <ReservationLegend />
+          </div>
 
+          {/* SALAS */}
           <RoomTimeline />
         </div>
       </main>
